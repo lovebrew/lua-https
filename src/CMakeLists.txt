@@ -1,9 +1,11 @@
 cmake_minimum_required (VERSION 3.13)
 
 ### Basic compilation settings
-if (NOT DEFINED CMAKE_POSITION_INDEPENDENT_CODE)
-  set(CMAKE_POSITION_INDEPENDENT_CODE TRUE CACHE BOOL "Build position independent code")
-endif()
+option(HTTPS_USE_FPIC "Enable CMAKE_POSITION_INDEPENDENT_CODE" ON)
+if (HTTPS_USE_FPIC)
+	set(CMAKE_POSITION_INDEPENDENT_CODE ON)
+endif ()
+
 set (CMAKE_CXX_STANDARD 14)
 
 include_directories (
