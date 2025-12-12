@@ -1,7 +1,9 @@
 cmake_minimum_required (VERSION 3.13)
 
 ### Basic compilation settings
-set (CMAKE_POSITION_INDEPENDENT_CODE TRUE)
+if (NOT DEFINED CMAKE_POSITION_INDEPENDENT_CODE)
+  set(CMAKE_POSITION_INDEPENDENT_CODE TRUE CACHE BOOL "Build position independent code")
+endif()
 set (CMAKE_CXX_STANDARD 14)
 
 include_directories (
